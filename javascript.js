@@ -5,7 +5,7 @@ $(".btn").on("click", function() {
     var recipe = $("#input").val().trim();
     var number = $("#FormInput2").val();
 
-    var queryURL = "https://api.edamam.com/search?q=" + recipe + "&app_id=770fa15d&app_key=bec3be67236b3eff20ab49f890b049bd&from=0&to=" + number
+    var queryURL = "https://api.edamam.com/search?q=" + recipe + "&app_id=b7748014&app_key=2bee19be6b5a1adece7bce58beae50ab&from=0&to=" + number
     console.log(queryURL)
 
     $.ajax({
@@ -27,13 +27,15 @@ $(".btn").on("click", function() {
                 for (var j = 0; j < arr.length; j++){
                     console.log(arr[j])
                     var line = $("<li>").text(arr[j])
+                    ingredients.append(line)
                 }
-           
-            newDiv.prepend(label, img, info, ingredients, url);
+                var button = $("<button>").addClass("ingredient-shopping-list").text("Add to Shopping List")
+            newDiv.prepend(label, img, info, button, ingredients, url);
             $(".list-of-recipes").append(newDiv);
             }
         })
 })
+//write a function that will take in an array and loop through randomly to select the number of recipes desired. Then each loop through splice(take out) the index that was selected so that the same recipe doesn't show more than once.
 //shopping list page JS
 function renderItems(){
   $("#shopping-list-items").empty()
