@@ -14,24 +14,26 @@ $(".btn").on("click", function() {
             console.log(response.hits);
             var results = response.hits;
             for (var i = 0; i < results.length; i++){
-                var newDiv = $("<div>");
+                var newDiv = $("<div>").attr("id", "recipeDiv");
                 var label = results[i].recipe.label;
                 var img = $("<div>").html("<img data-label='"+label+"' class='recipeImg' src='" + results[i].recipe.image + " '/>");
                 var info = $("<div>").text("Time: " + results[i].recipe.totalTime + " min.  ||  " + "Servings: " + results[i].recipe.yield)
                 var url = $("<div>").html("<a href='" + results[i].recipe.url + "'>" + results[i].recipe.url + "</a>");
+                $(ingredients).append(line)
                 var arr = results[i].recipe.ingredientLines
                 console.log(arr)
                 var ingredients = $("<ul>")
                 for (var j = 0; j < arr.length; j++){
                     console.log(arr[j])
                     var line = $("<li>").text(arr[j])
-                    $(ingredients).append(line)
                 }
+           
             newDiv.prepend(label, img, info, ingredients, url);
             $(".list-of-recipes").append(newDiv);
             }
         })
 })
+<<<<<<< HEAD
 
 //Youtube api
 function displayVideo(){
@@ -53,3 +55,5 @@ function displayVideo(){
 
 $(".list-of-recipes").on("click", ".recipeImg", displayVideo)
 
+=======
+>>>>>>> 0bc8d1cc051730599751852189ecebf942b9dbc6
