@@ -16,7 +16,7 @@ $(".btn").on("click", function() {
             for (var i = 0; i < results.length; i++){
                 var newDiv = $("<div>");
                 var label = results[i].recipe.label;
-                var img = $("<div>").html("<img src='" + results[i].recipe.image + "'/>");
+                var img = $("<div>").html("<img data-label='"+label+"' class='recipeImg' src='" + results[i].recipe.image + " '/>");
                 var info = $("<div>").text("Time: " + results[i].recipe.totalTime + " min.  ||  " + "Servings: " + results[i].recipe.yield)
                 var url = $("<div>").html("<a href='" + results[i].recipe.url + "'>" + results[i].recipe.url + "</a>");
                 var arr = results[i].recipe.ingredientLines
@@ -32,3 +32,24 @@ $(".btn").on("click", function() {
             }
         })
 })
+
+//Youtube api
+function displayVideo(){
+  var searchTerm = $(this).data("label")
+    console.log(searchTerm)
+    //google api key: AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y 
+    var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=1`
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response.items[0].id.videoId)
+        var videoId = response.items[0].id.videoId;
+
+        $(".video").append(`<iframe id="player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" frameborder="0"></iframe>`)
+    })
+}
+
+$(".list-of-recipes").on("click", ".recipeImg", displayVideo)
+
