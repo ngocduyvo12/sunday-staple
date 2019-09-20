@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Home Page</title>
+  <title>Nutrition Search</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -24,8 +24,42 @@
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/png" href="images/favicon.ico">  
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
 </head>
+<body>
+        <nav>
+            <h1>Sunday Staples</h1>
+        </nav>
+        <section id="pages">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Recipe Search</a></li>
+                <li><a href="#">Nutrition Search</a></li>
+                <li><a href="#">Shopping List</a></li>
+            </ul>
+        </section>
+        <div id="header">
+            <h2>Nutrition Search</h2>
+            <p>Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit munere facilis accusam eu dicat falli</p>
+        </div>
+        <form>
+            <div class="form-group" id="search">
+                <span id="search">
+                    Search Ingredient:
+                    <input id="input" type="text">
+                    <button id="search-ingredient" class="btn"
+                        type="submit">Search</button>
+                </span>
+            </div>
+        </form>
+        <div id="nutrition-info"></div>
+
+        <section class="list-of-recipes">
+        </section>
+        <script src="javascript.js"></script>
+    </body>
+    
+    </html>
