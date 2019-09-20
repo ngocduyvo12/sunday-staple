@@ -1,3 +1,4 @@
+//recipe page JS
 $(".btn").on("click", function() {
     event.preventDefault();
 
@@ -33,3 +34,60 @@ $(".btn").on("click", function() {
             }
         })
 })
+//shopping list page JS
+function renderItems(){
+  $("#shopping-list-items").empty()
+
+  items.forEach(function (item, i){
+    var shoppingItem = $("<p>");
+    shoppingItem.text(item);
+
+    var itemClose = $("<button>")
+    itemClose.attr("data-item", i);
+    itemClose.addClass("checkbox");
+    itemClose.text("x");
+   
+    shoppingItem = shoppingItem.prepend(itemClose);
+
+    $("#shopping-list-items").append(shoppingItem);
+  });
+};
+$("#add-item").on("click", function (event) {
+  event.preventDefault();
+
+  var itemName = $("#item").val().trim();
+
+  items.push(itemName);
+
+  localStorage.setItem("items", JSON.stringify(items));
+
+  renderItems();
+
+  $("item").val("");
+});
+$("#shopping-list-items").on("click", ".checkbox", function(){
+    var index = $(this).attr("data-item");
+
+    items.splice(index, 1);
+
+    localStorage.setItem("items", JSON.stringify(items));
+
+    renderItems();
+});
+var items = JSON.parse(localStorage.getItem("items")) || [];
+renderItems();
+
+
+
+// var firebaseConfig = {
+//   apiKey: "AIzaSyDsspV72wb_2Bsi_-hOugHnL_kxevXEYpU",
+//   authDomain: "project-1-sunday-staples.firebaseapp.com",
+//   databaseURL: "https://project-1-sunday-staples.firebaseio.com",
+//   projectId: "project-1-sunday-staples",
+//   storageBucket: "",
+//   messagingSenderId: "191809197009",
+//   appId: "1:191809197009:web:b08231f68a1d639696c6f0"
+// };
+
+// firebaseConfig.initializeApp(firebaseConfig);
+// var database = firebase.database();
