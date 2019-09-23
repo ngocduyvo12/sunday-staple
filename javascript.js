@@ -33,27 +33,54 @@ $(".btn").on("click", function() {
             }
         })
 })
-<<<<<<< HEAD
 
-//Youtube api
-function displayVideo(){
-  var searchTerm = $(this).data("label")
-    console.log(searchTerm)
-    //google api key: AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y 
-    var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=1`
+function searchBar () {
+    $(".search-bar").append(`<input id="videoSearch" type="text"><button id="video-input" class="btn" type="submit">Search</button>`);
+}
+
+
+function searchVideo(){
+    var searchTerm = $("#videoSearch").val().trim();
+    $(".get-video").empty();
+    console.log($("#videoSearch").val().trim())
+    var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5&videoCategoryId=food`
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response){
-        console.log(response.items[0].id.videoId)
-        var videoId = response.items[0].id.videoId;
+        for (var i = 0; i < response.items.length; i++){
 
-        $(".video").append(`<iframe id="player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" frameborder="0"></iframe>`)
-    })
+            console.log(response.items[i])
+            var videoId = response.items[i].id.videoId;
+            
+            $(".get-video").append(`<iframe id="player" type="text/html" width="250" height="250" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" frameborder="0"></iframe>`)
+        }
+        })
 }
 
-$(".list-of-recipes").on("click", ".recipeImg", displayVideo)
+//Youtube api
+function displayVideo(){
+  var searchTerm = $(this).data("label")
+    console.log(searchTerm)
+    searchBar();
+    //google api key: AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y 
+    var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5&videoCategoryId=food`
 
-=======
->>>>>>> 0bc8d1cc051730599751852189ecebf942b9dbc6
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        for (var i = 0; i < response.items.length; i++){
+
+            console.log(response.items[i])
+            var videoId = response.items[i].id.videoId;
+            
+            $(".get-video").append(`<iframe id="player" type="text/html" width="250" height="250" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" frameborder="0"></iframe>`)
+        }
+        })
+    }
+
+$(".list-of-recipes").on("click", ".recipeImg", displayVideo)
+$(".video").on("click", "#video-input", searchVideo)
+
