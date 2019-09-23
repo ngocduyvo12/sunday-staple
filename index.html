@@ -15,12 +15,18 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Firebase
+  __________________________________________________ -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -60,7 +66,69 @@
           </div>
       </section>
   </section>
+<<<<<<< HEAD
+=======
+
+  <br>
+  <br>
+
+
+<h2>Review Submission!</h2>
+
+<form class="review-form">
+  Your Name:
+  <br>
+  <input type="text" name="yourname" id="your-name">
+  <br>
+  Recipe Name:
+  <br>
+  <input type="text" name="recipename" id="recipe-name">
+  <br>
+  Comments:
+  <br>
+  <textarea rows="4" cols="50" id="review-comment"></textarea>
+  <br>
+
+<header class='header text-center' id="star-rating">
+    <h6>Recipe Rating:</h6>
+</header>
+
+<section class='recipe-rating'>
+
+  <div class='rating-stars text-center'>
+    <ul id='stars'>
+      <li class='star star-1' title='Poor' data-value='1'>
+        <!-- <i class='fa fa-star fa-fw'></i> -->
+      </li>
+      <li class='star star-2' title='Fair' data-value='2'>
+        <!-- <i class='fa fa-star fa-fw'></i> -->
+      </li>
+      <li class='star star-3' title='Good' data-value='3'>
+        <!-- <i class='fa fa-star fa-fw'></i> -->
+      </li>
+      <li class='star star-4' title='Excellent' data-value='4'>
+        <!-- <i class='fa fa-star fa-fw'></i> -->
+      </li>
+      <li class='star star-5' title='WOW!!!' data-value='5'>
+        <!-- <i class='fa fa-star fa-fw'></i> -->
+      </li>
+    </ul>
+  </div>
+
+</section>
+
+    <div class="form-group" id="reviewSubmit">
+            <button id="submit-review" class="btn4"
+                type="submit">Search</button>
+        </span>
+    </div>
+
+</form>
+
+
+>>>>>>> f81213df41c3d5f0bc76c3f62f631703959fc21a
     <script src="javascript.js"></script>
+    <script src="https://kit.fontawesome.com/c0127bbe4c.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
