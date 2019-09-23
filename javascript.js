@@ -170,48 +170,6 @@ $(".list-of-recipes").on("click", ".recipeImg", displayVideo)
 // Star Functionality
   $(document).ready(function (){
   
-  
-    // $('#stars li').on('mouseover', function (){
-
-    //   var onStar = parseInt($(this).data('value'), 10);
-     
-    //   $(this).parent().children('li.star').each(function (e){
-    //     if (e < onStar) {
-    //       $(this).addClass('hover');
-    //     }
-    //     else {
-    //       $(this).removeClass('hover');
-    //     }
-    //   });
-      
-    // }).on('mouseout', function (){
-
-    //   $(this).parent().children('li.star').each(function(e){
-    //     $(this).removeClass('hover');
-    //   });
-
-    // });
-    
-    
-
-    // $('#stars li').on('click', function (){
-
-    //   var onStar = parseInt($(this).data('value'), 10); 
-    //   var stars = $(this).parent().children('li.star');
-      
-    //   for (i = 0; i < stars.length; i++) {
-    //     $(stars[i]).removeClass('selected');
-    //   }
-      
-    //   for (i = 0; i < onStar; i++) {
-    //     $(stars[i]).addClass('selected');
-    //   }
-    //   console.log($(this))
-    //   rating = $(this).attr("data-value");
-    //   console.log(rating)
-      
-    // });
-       
   });
 
 
@@ -233,13 +191,10 @@ $(".list-of-recipes").on("click", ".recipeImg", displayVideo)
 
   $("#submit-review").on("click", function(event) {
       event.preventDefault()
-      console.log("clicked")
 
       var yourName = $("#your-name").val().trim();
       var recipeName = $("#recipe-name").val().trim();
       var comment = $("#review-comment").val().trim();
-    
-      console.log(rating)
 
       database.ref().push({
 
