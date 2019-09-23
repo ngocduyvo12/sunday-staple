@@ -49,6 +49,33 @@ $(".btn").on("click", function() {
             }
         })
 })
+<<<<<<< HEAD
+
+function searchBar () {
+    $(".search-bar").append(`<input id="videoSearch" type="text"><button id="video-input" class="btn" type="submit">Search</button>`);
+}
+
+
+function searchVideo(){
+    var searchTerm = $("#videoSearch").val().trim();
+    $(".get-video").empty();
+    console.log($("#videoSearch").val().trim())
+    var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5&videoCategoryId=food`
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        for (var i = 0; i < response.items.length; i++){
+
+            console.log(response.items[i])
+            var videoId = response.items[i].id.videoId;
+            
+            $(".get-video").append(`<iframe id="player" type="text/html" width="250" height="250" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" frameborder="0"></iframe>`)
+        }
+        })
+}
+=======
 //write a function that will take in an array and loop through randomly to select the number of recipes desired. Then each loop through splice(take out) the index that was selected so that the same recipe doesn't show more than once.
 //shopping list page JS
 function renderItems(){
@@ -120,6 +147,7 @@ function createItem(str){
     itemClose.attr("data-item", i);
     itemClose.addClass("checkbox");
     itemClose.text("x");
+>>>>>>> f81213df41c3d5f0bc76c3f62f631703959fc21a
 
     shoppingItem = shoppingItem.prepend(itemClose);
 
@@ -152,21 +180,29 @@ getLocalStorage()
 function displayVideo(){
   var searchTerm = $(this).data("label")
     console.log(searchTerm)
+    searchBar();
     //google api key: AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y 
-    var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=1`
+    var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5&videoCategoryId=food`
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response){
-        console.log(response.items[0].id.videoId)
-        var videoId = response.items[0].id.videoId;
+        for (var i = 0; i < response.items.length; i++){
 
-        $(".video").append(`<iframe id="player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" frameborder="0"></iframe>`)
-    })
-}
+            console.log(response.items[i])
+            var videoId = response.items[i].id.videoId;
+            
+            $(".get-video").append(`<iframe id="player" type="text/html" width="250" height="250" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" frameborder="0"></iframe>`)
+        }
+        })
+    }
 
 $(".list-of-recipes").on("click", ".recipeImg", displayVideo)
+<<<<<<< HEAD
+$(".video").on("click", "#video-input", searchVideo)
+
+=======
 // Star Functionality
   $(document).ready(function (){
   
@@ -276,3 +312,4 @@ $(".list-of-recipes").on("click", ".recipeImg", displayVideo)
     console.log("Errors handled: " + errorObj.code);
 
   });
+>>>>>>> f81213df41c3d5f0bc76c3f62f631703959fc21a
