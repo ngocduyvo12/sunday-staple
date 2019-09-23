@@ -1,3 +1,5 @@
+var rating = 3;
+
 $(".btn").on("click", function() {
     event.preventDefault();
 
@@ -54,4 +56,115 @@ function displayVideo(){
 
 $(".list-of-recipes").on("click", ".recipeImg", displayVideo)
 
-=======
+
+// Star Functionality
+  $(document).ready(function (){
+  
+  
+    // $('#stars li').on('mouseover', function (){
+
+    //   var onStar = parseInt($(this).data('value'), 10);
+     
+    //   $(this).parent().children('li.star').each(function (e){
+    //     if (e < onStar) {
+    //       $(this).addClass('hover');
+    //     }
+    //     else {
+    //       $(this).removeClass('hover');
+    //     }
+    //   });
+      
+    // }).on('mouseout', function (){
+
+    //   $(this).parent().children('li.star').each(function(e){
+    //     $(this).removeClass('hover');
+    //   });
+
+    // });
+    
+    
+
+    // $('#stars li').on('click', function (){
+
+    //   var onStar = parseInt($(this).data('value'), 10); 
+    //   var stars = $(this).parent().children('li.star');
+      
+    //   for (i = 0; i < stars.length; i++) {
+    //     $(stars[i]).removeClass('selected');
+    //   }
+      
+    //   for (i = 0; i < onStar; i++) {
+    //     $(stars[i]).addClass('selected');
+    //   }
+    //   console.log($(this))
+    //   rating = $(this).attr("data-value");
+    //   console.log(rating)
+      
+    // });
+       
+  });
+
+
+  var firebaseConfig = {
+
+    apiKey: "AIzaSyAKq_LRm-IOOQRiqnyRP4DF_-1pOxp0gas",
+    authDomain: "sunday-staples.firebaseapp.com",
+    databaseURL: "https://sunday-staples.firebaseio.com",
+    projectId: "sunday-staples",
+    storageBucket: "",
+    messagingSenderId: "473432398955",
+    appId: "1:473432398955:web:1e9ba1855bf66cfeeb252e"
+
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  var database = firebase.database();
+
+  $("#submit-review").on("click", function(event) {
+      event.preventDefault()
+      console.log("clicked")
+
+      var yourName = $("#your-name").val().trim();
+      var recipeName = $("#recipe-name").val().trim();
+      var comment = $("#review-comment").val().trim();
+    
+      console.log(rating)
+
+      database.ref().push({
+
+        name: yourName,
+        recipe: recipeName,
+        review: comment,
+        rate: rating,
+
+      })
+
+      $("input, textarea").val("");
+      rating = 3;
+
+  });
+
+  $(".rating-stars .star").on("click", function() {
+    $(".rating-stars .star").removeClass("selected");
+    $(this).addClass("selected");
+    rating = $(this).attr("data-value")
+
+  })
+
+  database.ref().on("child_added", function(childSnapshot) {
+
+    var userName = (childSnapshot.val().name);
+    var recipeTitle = (childSnapshot.val().recipe);
+    var userReview = (childSnapshot.val().review);
+    var userRating = (childSnapshot.val().rate);
+
+    $("#reviews").append("<h5>" + userName + "</h5><h4>" + recipeTitle + "</h4>,<p>" + userReview + "</p><i class='star star-" + userRating + "'/>")
+
+  }, function(errorObj) {
+
+    console.log("Errors handled: " + errorObj.code);
+
+  });
+
+

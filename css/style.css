@@ -1,0 +1,46 @@
+/* Star rating CSS */
+
+  .rating-stars ul {
+    list-style-type:none;
+    padding:0;
+    
+    -moz-user-select:none;
+    -webkit-user-select:none;
+  }
+  .star {
+    display:block;
+    background-image: url(../images/starRatingFixed.png);
+    width: 304px;
+    background-position: 0 0;
+    height: 50px;
+  }
+
+  .star-4 {
+    background-position: 0 -50px;
+  }
+
+  .star-3 {
+    background-position: 0 -98px;
+  }
+
+  .star-2 {
+    background-position: 0 -144px;
+  }
+
+  .star-1 {
+    background-position: 0 -190px;
+  }
+  
+  .star > i.fa {
+    font-size:2.5em;
+    color:#ccc;
+  }
+  
+  .star.hover > i.fa {
+    color:#FFCC36;
+  }
+  
+  .star.selected > i.fa {
+    color:#FF912C;
+  }
+  
