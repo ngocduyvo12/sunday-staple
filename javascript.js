@@ -254,12 +254,7 @@ $("#submit-review").on("click", function (event) {
 
 });
 
-$(".rating-stars .star").on("click", function () {
-  $(".rating-stars .star").removeClass("selected");
-  $(this).addClass("selected");
-  rating = $(this).attr("data-value")
-=======
-  $(".rating-stars .star").on("click", function() {
+$(".rating-stars .star").on("click", function() {
       
     $(".rating-stars .star").removeClass("selected");
     $(this).addClass("selected");
@@ -268,17 +263,16 @@ $(".rating-stars .star").on("click", function () {
 
 })
 
-database.ref().on("child_added", function (childSnapshot) {
+database.ref().on("child_added", function(childSnapshot) {
 
   var userName = (childSnapshot.val().name);
   var recipeTitle = (childSnapshot.val().recipe);
   var userReview = (childSnapshot.val().review);
   var userRating = (childSnapshot.val().rate);
 
-  $("#reviews").append("<h5>" + userName + "</h5><h4>" + recipeTitle + "</h4>,<p>" + userReview + "</p><i class='star star-" + userRating + "'/>")
+$("#reviews").append("<h5>" + userName + "</h5><h4>" + recipeTitle + "</h4>,<p>" + userReview + "</p><i class='star star-" + userRating + "'/>")
 
-}, function (errorObj) {
+}, function(errorObject) {
 
-  console.log("Errors handled: " + errorObj.code);
-
-});
+  console.log("Errors handled: " + errorObject.code);
+})
