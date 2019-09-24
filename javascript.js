@@ -247,6 +247,7 @@ $(".video").on("click", "#video-input", searchVideo)
   });
 
   $(".rating-stars .star").on("click", function() {
+      
     $(".rating-stars .star").removeClass("selected");
     $(this).addClass("selected");
     rating = $(this).attr("data-value")
