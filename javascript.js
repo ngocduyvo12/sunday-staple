@@ -1,4 +1,5 @@
 var rating = 3;
+var counter = 0;
 //recipe page JS
 var list = JSON.parse(localStorage.getItem("recipeItems")) || [];;
 var items = JSON.parse(localStorage.getItem("items")) || [];
@@ -269,7 +270,6 @@ $(".rating-stars .star").on("click", function() {
     $(this).addClass("selected");
     rating = $(this).attr("data-value")
 
-
 })
 
 database.ref().on("child_added", function(childSnapshot) {
@@ -278,10 +278,13 @@ database.ref().on("child_added", function(childSnapshot) {
   var recipeTitle = (childSnapshot.val().recipe);
   var userReview = (childSnapshot.val().review);
   var userRating = (childSnapshot.val().rate);
+  counter++;
 
-$("#reviews").append("<h5>" + userName + "</h5><h4>" + recipeTitle + "</h4>,<p>" + userReview + "</p><i class='star star-" + userRating + "'/>")
+  $("#reviews").append("<div id='review-" + counter + "'><h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/></div><br>")
+  $("#reviewPage").append("<h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/><br>")
+  $(`#review-${counter - 3}`).remove();
 
-}, function(errorObject) {
-
+}, function (errorObj) {
   console.log("Errors handled: " + errorObject.code);
 })
+
