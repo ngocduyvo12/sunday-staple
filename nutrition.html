@@ -16,45 +16,55 @@
 
     <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
+        rel="stylesheet" type="text/css">
 
     <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="images/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <nav>
-        <h1>Sunday Staples</h1>
+    <nav class="row">
+        <div class="six columns">
+            <h1>Sunday Staples</h1>
+        </div>
+        <div class="six columns">
+            <section id="links">
+                <h5><a href="#">Home</a> |
+                    <a href="#"> Recipe Search</a> |
+                    <a href="#"> Nutrition Search</a> |
+                    <a href="#"> Shopping List</a></h5>
+            </section>
+        </div>
     </nav>
-    <section id="pages">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Recipe Search</a></li>
-            <li><a href="#">Nutrition Search</a></li>
-            <li><a href="#">Shopping List</a></li>
-        </ul>
-    </section>
     <div id="header">
         <h2>Nutrition Search</h2>
-        <p>Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus
-            delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum an. Per facer
-            affert ut. Mei iisque mentitum moderatius cu. Sit munere facilis accusam eu dicat falli</p>
+        <p>Lorem ipsum dolor sit amet et delectus accommodare his consul
+            copiosae legendos at vix ad putent delectus
+            delicata usu. Vidit dissentiet eos cu eum an brute copiosae
+            hendrerit. Eos erant dolorum an. Per facer
+            affert ut. Mei iisque mentitum moderatius cu. Sit munere facilis
+            accusam eu dicat falli</p>
     </div>
     <form>
         <div class="form-group" id="search">
             <span id="search">
                 Search Ingredient:
                 <input id="input" type="text" placeholder="e.g spinach">
-                <input id="qtyInput" type="text" placeholder="qty must be in grams">
-                <button id="search-ingredient" class="btn" type="submit">Search</button>
+                <input id="qtyInput" type="text"
+                    placeholder="qty must be in grams">
+                <button id="search-ingredient" class="btn"
+                    type="submit">Search</button>
             </span>
         </div>
     </form>

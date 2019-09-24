@@ -273,7 +273,7 @@ $(".rating-stars .star").on("click", function() {
 })
 
 database.ref().on("child_added", function(childSnapshot) {
-
+  var newDiv = $("<div>").addClass("four columns")
   var userName = (childSnapshot.val().name);
   var recipeTitle = (childSnapshot.val().recipe);
   var userReview = (childSnapshot.val().review);
