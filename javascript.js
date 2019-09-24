@@ -1,8 +1,10 @@
 var rating = 3;
+var counter = 0;
 //recipe page JS
 var list = JSON.parse(localStorage.getItem("recipeItems")) || [];;
 var items = JSON.parse(localStorage.getItem("items")) || [];
 var saved = JSON.parse(localStorage.getItem("saved")) || [];
+var labels = JSON.parse(localStorage.getItem("labels")) || [];
 
 $(".btn").on("click", function () {
   event.preventDefault();
@@ -31,7 +33,8 @@ $(".btn").on("click", function () {
       var img = $("<div>").html("<img data-label='" + label + "' class='recipeImg' src='" + results[hit].recipe.image + " '/>");
       var info = $("<div>").text("Time: " + results[hit].recipe.totalTime + " min.  ||  " + "Servings: " + results[hit].recipe.yield)
       var url = results[hit].recipe.url
-      saved.push(label + results[hit].recipe.url)
+      saved.push(results[hit].recipe.url)
+      labels.push(label)
       console.log(saved)
       var save = $("<button>").addClass("save-btn").text("Save!")
       $(ingredients).append(line)
@@ -108,31 +111,38 @@ $("#recipe-shopping-list").on("click", ".recipe-checkbox", function () {
 
   renderToScreen();
 });
+
 function renderSaved (){
   $(".saved-recipes").empty()
 
-  saved.forEach(function (recipe, i){
+  for (var i = 0; i < saved.length; i++){
     var savedRecipe = $("<p>");
-    savedRecipe.text(recipe);
+    savedRecipe.html(`<a href="${saved[i]}">${saved[i]}</a>`);
 
     var remove = $("<button>").attr("data-recipe", i).addClass("remove").text("Delete")
 
+    savedRecipe = savedRecipe.prepend(labels[i] + ": ")
     savedRecipe = savedRecipe.prepend(remove)
 
     $(".saved-recipes").append(savedRecipe)
-  })
+
+  }
 }
+
+
 $(".saved-recipes").on("click", ".remove", function () {
   var index = $(this).attr("data-recipe");
 
   saved.splice(index, 1);
 
   localStorage.setItem("saved", JSON.stringify(saved));
+  localStorage.setItem("labels", JSON.stringify(labels));
 
   renderSaved();
 })
 $(".list-of-recipes").on("click", ".save-btn", function (){
   localStorage.setItem("saved", JSON.stringify(saved));
+  localStorage.setItem("labels", JSON.stringify(labels));
   var url = $(this).attr("data-url")
 
   renderSaved()
@@ -260,7 +270,6 @@ $(".rating-stars .star").on("click", function() {
     $(this).addClass("selected");
     rating = $(this).attr("data-value")
 
-
 })
 
 database.ref().on("child_added", function(childSnapshot) {
@@ -269,10 +278,13 @@ database.ref().on("child_added", function(childSnapshot) {
   var recipeTitle = (childSnapshot.val().recipe);
   var userReview = (childSnapshot.val().review);
   var userRating = (childSnapshot.val().rate);
-(newDiv).append("<h5>" + userName + "</h5><h4>" + recipeTitle + "</h4>,<p>" + userReview + "</p><i class='star star-" + userRating + "'/>")
-$("#reviews").append(newDiv)
+  counter++;
 
-}, function(errorObject) {
+  $("#reviews").append("<div id='review-" + counter + "'><h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/></div><br>")
+  $("#reviewPage").append("<h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/><br>")
+  $(`#review-${counter - 3}`).remove();
 
+}, function (errorObj) {
   console.log("Errors handled: " + errorObject.code);
 })
+
