@@ -264,13 +264,13 @@ $(".rating-stars .star").on("click", function() {
 })
 
 database.ref().on("child_added", function(childSnapshot) {
-
+  var newDiv = $("<div>").addClass("four columns")
   var userName = (childSnapshot.val().name);
   var recipeTitle = (childSnapshot.val().recipe);
   var userReview = (childSnapshot.val().review);
   var userRating = (childSnapshot.val().rate);
-
-$("#reviews").append("<h5>" + userName + "</h5><h4>" + recipeTitle + "</h4>,<p>" + userReview + "</p><i class='star star-" + userRating + "'/>")
+(newDiv).append("<h5>" + userName + "</h5><h4>" + recipeTitle + "</h4>,<p>" + userReview + "</p><i class='star star-" + userRating + "'/>")
+$("#reviews").append(newDiv)
 
 }, function(errorObject) {
 

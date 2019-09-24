@@ -1,3 +1,44 @@
+*{
+  font-family: 'Karla', sans-serif;
+}
+/* all page navs CSS */
+nav {
+  width: 100%;
+  background-color: #d9d9d9;
+  margin-bottom: 2%;
+  padding: 20px;
+}
+h1 {
+  margin: 0;
+  letter-spacing: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+h5{
+  margin:15px 0 0;
+  
+}
+a {
+  text-decoration: none;
+  color: #009999;
+}
+#links {
+  float: right;
+}
+/* home page CSS */
+#welcome {
+  background-color: #ccffff;
+  padding: 5px 0 0 5px;
+}
+h2, h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 2px;
+}
+h3 {
+  font-size: 18px;
+}
+#homeP1 {
+  margin: 5px 0;
+}
 /* Star rating CSS */
 
   .rating-stars ul {
