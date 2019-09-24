@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Basic Page Needs
@@ -15,8 +16,7 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
-
+  <link href="https://fonts.googleapis.com/css?family=Karla|Playfair+Display&display=swap" rel="stylesheet">
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
@@ -25,93 +25,124 @@
 
   <!-- Firebase
   __________________________________________________ -->
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+  <script
+    src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+  <script
+    src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.ico">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
-  <nav><h1>Sunday Staples</h1></nav>
-  <section id="pages">
-      <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Recipe Search</a></li>
-          <li><a href="#">Nutrition Search</a></li>
-          <li><a href="#">Shopping List</a></li>
-      </ul>
-      <section id="welcome">
-          <h2>Welcome to Sunday Staples</h2>
-          <h3>Our website is designed to help make meal planning easier for you!</h3>
-          <p>There is debate on who painstakingly birthed our favourite monumental flavor creation into existence. What really matters is that, at the end of the day, we can collectively relish in the sweet glory of it all. From beef-to-bun ratio, ‘how much is too much?’ cheese, and the careful alchemy of condiments, every cheeseburger is a small mountain of heaven.</p>
+  <nav class="row">
+    <div class="six columns">
+    <h1>Sunday Staples</h1>
+    </div>
+  <div class="six columns">
+    <section id="links">
+      <h5><a href="#">Home</a> | 
+      <a href="#"> Recipe Search</a> |
+      <a href="#"> Nutrition Search</a> |
+      <a href="#"> Shopping List</a></h5>
+    </section>
+    </div>
+  </nav>
+  <div class="container">
+  <section id="welcome">
+    <div class="row">
+    <div class="twelve columns"><h2>Welcome to Sunday Staples</h2></div>
+  </div>
+  <div class="row">
+    <div class="twelve columns"><h3>Our website is designed to help make meal planning easier for you!</h3></div>
+  </div>
+  <div class="row">
+    <div class="twelve columns">
+    <p id="homeP1">There is debate on who painstakingly birthed our favourite monumental
+      flavor creation into existence. What really matters is that, at the end of
+      the day, we can collectively relish in the sweet glory of it all. From
+      beef-to-bun ratio, ‘how much is too much?’ cheese, and the careful alchemy
+      of condiments, every cheeseburger is a small mountain of heaven.</p>
 
-          <p>Any day without a cheeseburger in it is a waste. You can find a cheeseburger no matter where you go in the world, so you have no excuse to miss out on the glory that some people can only dream of. Step up to the plate.</p>
-      </section>
-      <section id="reviews">
-      </section>
-
-      <div class="form-group" id="allReviews">
-        <button id="all-reviews" class="btn4"
-            type="submit" onclick="window.location.href ='reviews.html'">View All Reviews</button>
-      </div>
+    <p id="homeP2">Any day without a cheeseburger in it is a waste. You can find a
+      cheeseburger no matter where you go in the world, so you have no excuse to
+      miss out on the glory that some people can only dream of. Step up to the
+      plate.</p>
+    </div>
+    </div>
   </section>
-
-  <br>
-  <br>
-
-
-<h2>Review Submission!</h2>
-
-<form class="review-form">
-  Your Name:
-  <br>
-  <input type="text" name="yourname" id="your-name">
-  <br>
-  Recipe Name:
-  <br>
-  <input type="text" name="recipename" id="recipe-name">
-  <br>
-  Comments:
-  <br>
-  <textarea rows="4" cols="50" id="review-comment"></textarea>
-  <br>
-
-<header class='header text-center' id="star-rating">
-    <h6>Recipe Rating:</h6>
-</header>
-
-<section class='recipe-rating'>
-
-  <div class='rating-stars text-center'>
-    <ul id='stars'>
-      <li class='star star-1' title='Poor' data-value='1'>
-      </li>
-      <li class='star star-2' title='Fair' data-value='2'>
-      </li>
-      <li class='star star-3' title='Good' data-value='3'>
-      </li>
-      <li class='star star-4' title='Excellent' data-value='4'>
-      </li>
-      <li class='star star-5' title='WOW!!!' data-value='5'>
-      </li>
-    </ul>
+  <div id="reviews" class="row">
+  </div>
+  <div class="form-group" id="allReviews">
+      <button id="all-reviews" class="btn4"
+          type="submit" onclick="window.location.href ='reviews.html'">View All Reviews</button>
   </div>
 
-</section>
+  <br>
+  <br>
 
-    <div class="form-group" id="reviewSubmit">
-            <button id="submit-review" class="btn4"
-                type="submit">Search</button>
+  <div class="row">
+  <div class="twelve columns"><h2>Review Submission!</h2></div>
+  </div>
+  <div class="row">
+  <div class="four columns">
+  <form class="review-form">
+    Your Name:
+    <br>
+    <input type="text" name="yourname" id="your-name">
+    <br>
+    Recipe Name:
+    <br>
+    <input type="text" name="recipename" id="recipe-name">
+    <br>
     </div>
+    <div class="eight columns">
+    Comments:
+    <br>
+    <textarea rows="4" cols="50" id="review-comment"></textarea>
+    <br>
+    </div>
+    </div>
+    <div class="row">
+    <div class="six columns">
+    <header class='header text-center' id="star-rating">
+      <h6>Recipe Rating:</h6>
+    </header>
 
-</form>
+    <section class='recipe-rating'>
 
-    <script src="javascript.js"></script>
-    <script src="https://kit.fontawesome.com/c0127bbe4c.js" crossorigin="anonymous"></script>
+      <div class='rating-stars text-center'>
+        <ul id='stars'>
+          <li class='star star-1' title='Poor' data-value='1'>
+          </li>
+          <li class='star star-2' title='Fair' data-value='2'>
+          </li>
+          <li class='star star-3' title='Good' data-value='3'>
+          </li>
+          <li class='star star-4' title='Excellent' data-value='4'>
+          </li>
+          <li class='star star-5' title='WOW!!!' data-value='5'>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </section>
+  </div>
+    <div class="six columns">
+    <div class="form-group" id="reviewSubmit">
+      <button id="submit-review" class="btn4" type="submit">Submit</button>
+      </span>
+    </div>
+  </div>
+  </form>
+</div>
+  <script src="javascript.js"></script>
+  <script src="https://kit.fontawesome.com/c0127bbe4c.js"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
