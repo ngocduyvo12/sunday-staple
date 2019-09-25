@@ -6,6 +6,7 @@ var items = JSON.parse(localStorage.getItem("items")) || [];
 var saved = JSON.parse(localStorage.getItem("saved")) || [];
 var labels = JSON.parse(localStorage.getItem("labels")) || [];
 
+
 $(".btn").on("click", function () {
   event.preventDefault();
 
@@ -28,7 +29,7 @@ $(".btn").on("click", function () {
       console.log(results[hit])
 
       console.log(results)
-      var label = results[hit].recipe.label ;
+      var label = results[hit].recipe.label;
       var title = $("<div>").html("<a href='" + results[hit].recipe.url + "'>" + "Recipe : " + label + "</a>");
       var img = $("<div>").html("<img data-label='" + label + "' class='recipeImg' src='" + results[hit].recipe.image + " '/>");
       var info = $("<div>").text("Time: " + results[hit].recipe.totalTime + " min.  ||  " + "Servings: " + results[hit].recipe.yield)
@@ -86,7 +87,7 @@ $("#add-item").on("click", function (event) {
   localStorage.setItem("items", JSON.stringify(items));
 
   renderItems();
-  renderToScreen;
+  renderToScreen();
   $("#item").val("");
 });
 
@@ -112,10 +113,10 @@ $("#recipe-shopping-list").on("click", ".recipe-checkbox", function () {
   renderToScreen();
 });
 
-function renderSaved (){
+function renderSaved() {
   $(".saved-recipes").empty()
 
-  for (var i = 0; i < saved.length; i++){
+  for (var i = 0; i < saved.length; i++) {
     var savedRecipe = $("<p>");
     savedRecipe.html(`<a href="${saved[i]}">${saved[i]}</a>`);
 
@@ -140,7 +141,7 @@ $(".saved-recipes").on("click", ".remove", function () {
 
   renderSaved();
 })
-$(".list-of-recipes").on("click", ".save-btn", function (){
+$(".list-of-recipes").on("click", ".save-btn", function () {
   localStorage.setItem("saved", JSON.stringify(saved));
   localStorage.setItem("labels", JSON.stringify(labels));
   var url = $(this).attr("data-url")
@@ -152,7 +153,7 @@ $(".list-of-recipes").on("click", ".ingredient-shopping-list", function () {
   renderToScreen()
 })
 function renderToScreen() {
-   $("#recipe-shopping-list").empty()
+  $("#recipe-shopping-list").empty()
 
   list.forEach((ingredient, i) => {
     var shoppingItem = $("<p>").attr("data-item", i);
@@ -181,7 +182,7 @@ function displayVideo() {
   console.log(searchTerm)
   searchBar();
   //google api key: AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y 
-  var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5&videoCategoryId=food`
+  var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5`
 
   $.ajax({
     url: queryURL,
@@ -200,7 +201,7 @@ function searchVideo() {
   var searchTerm = $("#videoSearch").val().trim();
   $(".get-video").empty();
   console.log($("#videoSearch").val().trim())
-  var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5&videoCategoryId=food`
+  var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5`
 
   $.ajax({
     url: queryURL,
@@ -296,11 +297,11 @@ $("#submit-review").on("click", function (event) {
 
 });
 
-$(".rating-stars .star").on("click", function() {
-      
-    $(".rating-stars .star").removeClass("selected");
-    $(this).addClass("selected");
-    rating = $(this).attr("data-value")
+$(".rating-stars .star").on("click", function () {
+
+  $(".rating-stars .star").removeClass("selected");
+  $(this).addClass("selected");
+  rating = $(this).attr("data-value")
 
 })
 
@@ -318,3 +319,55 @@ database.ref().on("child_added", function(childSnapshot) {
 }, function (errorObj) {
   console.log("Errors handled: " + errorObject.code);
 })
+
+var oldItems = JSON.parse(localStorage.getItem("oldItems"));
+var oldList = JSON.parse(localStorage.getItem("oldList"));
+
+// //clicking done will push the current shopping list into local storage
+$("#done-list").on("click", function (event) {
+  event.preventDefault();
+
+
+  //remove previous old list
+  localStorage.removeItem("oldItems");
+  localStorage.removeItem("oldList");
+
+  //push old data into the 
+  localStorage.setItem("oldItems", JSON.stringify(items));
+  localStorage.setItem("oldList", JSON.stringify(list));
+
+  localStorage.removeItem("items")
+  localStorage.removeItem("recipeItems")
+
+
+  // console.log(items);
+  // console.log(list);
+  // console.log(localStorage.getItem("items"))
+  // console.log(localStorage.getItem("recipeItems"))
+
+  oldItems = JSON.parse(localStorage.getItem("oldItems"));
+  oldList = JSON.parse(localStorage.getItem("oldList"));
+
+   renderOldList();
+
+   items = [];
+   list = [];
+ 
+})  
+
+
+
+function renderOldList() {
+
+  for(var i = 0; i < oldList.length; i++){
+    var listHtml = $("#old-shopping-lists")
+    listHtml.prepend(`<li>${oldList[i]}</li>`)
+  }
+
+  for(var i = 0; i < oldItems.length; i++){
+    var listHtml = $("#old-shopping-lists")
+    listHtml.prepend(`<li>${oldItems[i]}</li>`)
+  }
+}
+
+renderOldList();
