@@ -174,12 +174,15 @@ renderToScreen()
 renderSaved()
 
 //Youtube api
+function searchBar() {
+  $(".search-bar").append(`<input id="videoSearch" type="text"><button id="video-input" class="btn" type="submit">Search</button>`);
+}
 function displayVideo() {
   var searchTerm = $(this).data("label")
   console.log(searchTerm)
   searchBar();
   //google api key: AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y 
-  var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5&videoCategoryId=food`
+  var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5`
 
   $.ajax({
     url: queryURL,
@@ -194,16 +197,11 @@ function displayVideo() {
     }
   })
 }
-function searchBar() {
-  $(".search-bar").append(`<input id="videoSearch" type="text"><button id="video-input" class="btn" type="submit">Search</button>`);
-}
-
-
 function searchVideo() {
   var searchTerm = $("#videoSearch").val().trim();
   $(".get-video").empty();
   console.log($("#videoSearch").val().trim())
-  var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5&videoCategoryId=food`
+  var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5`
 
   $.ajax({
     url: queryURL,
@@ -221,6 +219,40 @@ function searchVideo() {
 
 $(".list-of-recipes").on("click", ".recipeImg", displayVideo)
 $(".video").on("click", "#video-input", searchVideo)
+
+// saved Recipe collapsible
+$(".collapsible").on("click", function(){
+  if ($(".hidden").attr("class") === "hidden") {
+    $(".hidden").attr("class", "show")
+  } else if($(".show").attr("class") === "show"){
+    $(".show").attr("class", "hidden")
+  }
+
+})
+
+//homepage image slideshow
+var homeImages =["images/breakfast.jpg", "images/burrito.jpg", "images/chocolate.jpg", "images/fruit.jpg", "images/macroons.jpg", "images/gather.jpg", "images/pasta.jpg", "images/pie.jpg", "images/protein.jpg", "images/vegebowl.jpg"]
+
+var showImage;
+
+var homeImageCount = 0;
+
+function displayHomeImage(){
+  $("#home-images-slideshow").html("<img class='imageSize' src=" + homeImages[homeImageCount] + " height='250px' width='100%'>").fadeIn()
+  $("img").fadeIn()
+}
+function nextImage(){
+  homeImageCount++;
+  setTimeout(displayHomeImage, 1000);
+  if (homeImageCount === homeImages.length){
+    homeImageCount = 0;
+  }
+}
+function startImageSlideshow(){
+  showImage = setInterval(nextImage, 10000)
+}
+displayHomeImage();
+startImageSlideshow();
 
 // Star Functionality
 $(document).ready(function () {
@@ -273,16 +305,15 @@ $(".rating-stars .star").on("click", function () {
 
 })
 
-database.ref().on("child_added", function (childSnapshot) {
-
+database.ref().on("child_added", function(childSnapshot) {
   var userName = (childSnapshot.val().name);
   var recipeTitle = (childSnapshot.val().recipe);
   var userReview = (childSnapshot.val().review);
   var userRating = (childSnapshot.val().rate);
   counter++;
 
-  $("#reviews").append("<div id='review-" + counter + "'><h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/></div><br>")
-  $("#reviewPage").append("<h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/><br>")
+  $("#reviews").append("<div id='review-" + counter + "' class='four columns'><h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/></div>")
+  $("#reviewPage").append("<div id='review-section' class='twelve columns' <h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/><br></div>")
   $(`#review-${counter - 3}`).remove();
 
 }, function (errorObj) {
