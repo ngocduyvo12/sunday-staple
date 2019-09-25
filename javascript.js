@@ -237,7 +237,7 @@ var showImage;
 var homeImageCount = 0;
 
 function displayHomeImage(){
-  $("#home-images-slideshow").html("<img class='imageSize' src=" + homeImages[homeImageCount] + " height='250px' width='100%'>").fadeIn()
+  $("#home-images-slideshow").html("<img class='w3-animate-fading' src=" + homeImages[homeImageCount] + " height='250px' width='100%'>").fadeIn()
   $("img").fadeIn()
 }
 function nextImage(){
@@ -248,7 +248,7 @@ function nextImage(){
   }
 }
 function startImageSlideshow(){
-  showImage = setInterval(nextImage, 10000)
+  showImage = setInterval(nextImage, 6000)
 }
 displayHomeImage();
 startImageSlideshow();
