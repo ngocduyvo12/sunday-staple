@@ -16,7 +16,7 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="https://fonts.googleapis.com/css?family=Karla|Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Karla|Playfair+Display|Questrial&display=swap" rel="stylesheet">
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
@@ -53,6 +53,9 @@
     </div>
   </nav>
   <div class="container">
+  <div class="row">
+    <div class="twelve columns" id="home-images-slideshow"></div>
+  </div>
   <section id="welcome">
     <div class="row">
     <div class="twelve columns"><h2>Welcome to Sunday Staples</h2></div>
@@ -62,34 +65,25 @@
   </div>
   <div class="row">
     <div class="twelve columns">
-    <p id="homeP1">There is debate on who painstakingly birthed our favourite monumental
-      flavor creation into existence. What really matters is that, at the end of
-      the day, we can collectively relish in the sweet glory of it all. From
-      beef-to-bun ratio, ‘how much is too much?’ cheese, and the careful alchemy
-      of condiments, every cheeseburger is a small mountain of heaven.</p>
-
-    <p id="homeP2">Any day without a cheeseburger in it is a waste. You can find a
-      cheeseburger no matter where you go in the world, so you have no excuse to
-      miss out on the glory that some people can only dream of. Step up to the
-      plate.</p>
+    <p id="homeP1">We've created a variety of tools that add variety to your meal plan, provide food data to help you stay on track, and organize your shopping to save you time! Check out the Recipe Search and input one of your Sunday Staples (e.g. Chicken, Broccoli, Eggs, Oats, etc.) to find a new recipe to try out. Utilize the Nutrition Search to find out the nutritional value of any food so that you can keep track of points, calories, carbs, etc. View the Shopping List page to either add items to the list or view ingredients that you added from a searched recipe. Finally, scroll through the Reviews to see what other people have loved or hated to get some ideas of what to try or steer clear of.</p>
+  
+    <p id="homeP2">Food should bring joy, not frustration. Using our tools will certainly make Sunday meal planning easier and more convenient. Think of all the time you'll save and the inspiration that will spark! Be sure to take pictures of your creations and tag #SundayStaples so we can see what you make! </p>
     </div>
     </div>
   </section>
-  <div id="reviews" class="row">
-  </div>
+  <div class="row">
+  <div id="reviews"></div>
+</div>
   <div class="form-group" id="allReviews">
       <button id="all-reviews" class="btn4"
           type="submit" onclick="window.location.href ='reviews.html'">View All Reviews</button>
   </div>
-
-  <br>
-  <br>
-
+  <section id="reviewForm">
   <div class="row">
-  <div class="twelve columns"><h2>Review Submission!</h2></div>
+  <div class="twelve columns" id="reviewFormHeader"><h2>Submit a Review!</h2></div>
   </div>
   <div class="row">
-  <div class="four columns">
+  <div class="five columns">
   <form class="review-form">
     Your Name:
     <br>
@@ -99,18 +93,20 @@
     <br>
     <input type="text" name="recipename" id="recipe-name">
     <br>
-    </div>
-    <div class="eight columns">
+    Recipe URL:
+    <br>
+    <input type="url" name="recicpeurl" id="recipe-url">
+    <br>
     Comments:
     <br>
-    <textarea rows="4" cols="50" id="review-comment"></textarea>
+    <textarea id="review-comment"></textarea>
     <br>
-    </div>
-    </div>
-    <div class="row">
-    <div class="six columns">
+    
+
+  </div>
+  <div class="seven columns">
     <header class='header text-center' id="star-rating">
-      <h6>Recipe Rating:</h6>
+      <p>Recipe Rating:</p>
     </header>
 
     <section class='recipe-rating'>
@@ -129,16 +125,15 @@
           </li>
         </ul>
       </div>
-    </div>
     </section>
-  </div>
-    <div class="six columns">
     <div class="form-group" id="reviewSubmit">
       <button id="submit-review" class="btn4" type="submit">Submit</button>
       </span>
-    </div>
   </div>
+</div>
+</div>
   </form>
+</section>
 </div>
   <script src="javascript.js"></script>
   <script src="https://kit.fontawesome.com/c0127bbe4c.js"
