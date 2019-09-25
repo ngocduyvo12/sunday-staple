@@ -50,6 +50,31 @@ h3 {
 #homeP1, #homeP2 {
   margin: 0 10px 10px;
 }
+#recipes-of-the-day {
+  background-color: whitesmoke;
+  border: 2px ridge #202020;
+  padding: 1%;
+  margin-top: 2%;
+  text-align: center;
+}
+#dayRecipeHeader {
+  border: 2px inset #108a8a;
+  background-color: #108a8a;
+  color: whitesmoke;
+  font-size: 24px;
+  padding: 1% 0;
+  margin: 0;
+
+}
+.dayRecipeTitle{
+  font-size: 22px; 
+}
+.dayRecipeInfo {
+  margin: 0;
+}
+#reviews {
+  margin-top: 2%;
+}
 #all-reviews {
   margin-bottom: 2%;
 }
@@ -69,7 +94,7 @@ h3 {
 #home-images-slideshow{
   width: 100%;
   height: 250px;
-  margin-bottom: 1%;
+  margin: 0.2% 0;
 }
 img.imageSize {
   height: auto;
@@ -127,6 +152,12 @@ img.imageSize {
   }
   th {
     padding-top: 0;
+  }
+  #nutritionInput.input-false, #qtyInput.input-false {
+    background-color: #ffb699;
+  }
+  #nutritionInput.input-true, #qtyInput.input-true {
+    background-color: white;
   }
   #nutritionP {
     margin-bottom: 0;
