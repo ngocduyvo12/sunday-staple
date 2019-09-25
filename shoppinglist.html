@@ -28,6 +28,12 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+
+
 </head>
 <body>
         <nav>
@@ -51,13 +57,12 @@
     <hr>
     <div id="shopping-list-items"></div>
     <div id="recipe-shopping-list"></div>
+    <form>
+        <input id="done-list" value="Done" type="submit">
+    </form>
     <div id="past-shopping-lists">
         <h4>Past Shopping Lists:</h4>
-        <ul>
-            <li>6/30</li>
-            <li>7/15</li>
-            <li>8/31</li>
-        </ul>
+        <div id="old-shopping-lists"></div>
     </div>
     <script src="javascript.js"></script>
 </body>
