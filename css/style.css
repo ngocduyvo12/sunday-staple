@@ -50,8 +50,8 @@ h3 {
 #homeP1, #homeP2 {
   margin: 0 10px 10px;
 }
-#reviewsRow {
-  background-color: #F8F8F8;
+#all-reviews {
+  margin-bottom: 2%;
 }
 #reviewFormHeader {
   margin-bottom: 3%;
@@ -60,6 +60,7 @@ h3 {
   border: 2px inset 	#202020;
   padding: 5% 0 5% 10%;
   font-size: 24px;
+  margin-bottom: 5%;
 }
 #submit-review{
   float:right;
