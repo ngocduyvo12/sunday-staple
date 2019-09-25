@@ -35,7 +35,7 @@ button {
 /* home page CSS */
 #welcome, #header {
   background-color: #9fdfbc;
-  padding: 20px;
+  padding: 0 20px 20px;
 }
 h2, h3 {
   font-family: 'Playfair Display', serif;
@@ -50,8 +50,8 @@ h3 {
 #homeP1, #homeP2 {
   margin: 0 10px 10px;
 }
-#reviewsRow {
-  background-color: #F8F8F8;
+#all-reviews {
+  margin-bottom: 2%;
 }
 #reviewFormHeader {
   margin-bottom: 3%;
@@ -60,14 +60,16 @@ h3 {
   border: 2px inset 	#202020;
   padding: 5% 0 5% 10%;
   font-size: 24px;
+  margin-bottom: 5%;
 }
 #submit-review{
   float:right;
   margin-right: 30%;
 }
-#home-ingredient-slideshow{
+#home-images-slideshow{
   width: 100%;
   height: 250px;
+  margin-bottom: 1%;
 }
 img.imageSize {
   height: auto;
@@ -119,8 +121,8 @@ img.imageSize {
     color:#FF912C;
   }
 /* nutrition page unique CSS */
-  #search {
-    padding: 1.5% 0 0 8.5%;
+  #nutrition-search {
+    padding: 1.5% 0 1.5% 16.5%;
     background-color: #F8F8F8;
   }
   th {
@@ -136,6 +138,13 @@ img.imageSize {
   #recipeP2 {
     margin-top: 1%;
   }
+  #recipe-search {
+    padding: 1.5% 0 1.5% 27.5%;
+    background-color: #F8F8F8;
+  }
+  #recipe-form {
+    margin-bottom: 1rem;
+  }
   .collapsible {
     background-color: #8c8c8c;
     color: #F8F8F8;
@@ -147,12 +156,15 @@ img.imageSize {
     outline: none;
     font-size: 15px;
     padding: 0;
+    margin-bottom: 2%;
   }
 .hidden {
-  display: none
+  display: none;
+  margin-bottom: 5%;
 }
 .show {
-  display: block
+  display: block;
+  margin-bottom: 5%;
 }
 /* shopping list page unique CSS */
 #currentList, #pastList {

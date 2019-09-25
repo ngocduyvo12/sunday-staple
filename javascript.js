@@ -181,7 +181,7 @@ renderSaved()
 
 //Youtube api
 function searchBar() {
-  $(".search-bar").append(`<input id="videoSearch" type="text"><button id="video-input" class="btn" type="submit">Search</button>`);
+  $(".search-bar").append(`<input id="videoSearch" type="text"><button id="video-input" class="btn" type="submit">Search Video</button>`);
 }
 function displayVideo() {
   var searchTerm = $(this).data("label")
@@ -200,7 +200,7 @@ function displayVideo() {
       console.log(response.items[i])
       var videoId = response.items[i].id.videoId;
 
-      $(".get-video").append(`<iframe id="player" type="text/html" width="250" height="250" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" frameborder="0"></iframe>`)
+      $(".get-video").append(`<iframe id="player" type="text/html" width="400" height="250" src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" frameborder="0"></iframe>`)
     }
   })
 }
