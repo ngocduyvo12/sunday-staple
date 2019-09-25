@@ -7,10 +7,12 @@ var saved = JSON.parse(localStorage.getItem("saved")) || [];
 var labels = JSON.parse(localStorage.getItem("labels")) || [];
 
 
-$(".btn").on("click", function () {
+$(".recipe-btn").on("click", function () {
   event.preventDefault();
 
   $(".list-of-recipes").empty()
+  $(".search-bar").empty()
+  $(".get-video").empty()
 
   var recipe = $("#input").val().trim();
 
@@ -184,6 +186,7 @@ function searchBar() {
 function displayVideo() {
   var searchTerm = $(this).data("label")
   console.log(searchTerm)
+
   searchBar();
   //google api key: AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y 
   var queryURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&key=AIzaSyDtueaZi7FV1QERCc2pUAeb_9S4hImUb4Y&maxResults=5`
