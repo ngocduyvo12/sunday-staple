@@ -7,6 +7,21 @@ $("#search-ingredient").on("click", function () {
     //create ratio to calculate serving
     var ratio = number / 100;
 
+    if (!ingredient){
+        $("#input").attr("class","input-false")
+    }
+    else {
+        $("#input").attr("class","input-true")
+    }
+
+    if (!number){
+        $("#qtyInput").attr("class","input-false")
+        return false;
+    }
+    else {
+        $("#qtyInput").attr("class","input-true")
+    }
+
     console.log(ingredientEncode)
     //app key: ae848bd342699ecbf0e61c343bf3588c
     //app id: 6ef4bc8b
