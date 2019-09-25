@@ -286,6 +286,7 @@ $("#submit-review").on("click", function (event) {
   var yourName = $("#your-name").val().trim();
   var recipeName = $("#recipe-name").val().trim();
   var comment = $("#review-comment").val().trim();
+  var recipeURL = $("#recipe-url").val().trim();
 
   database.ref().push({
 
@@ -293,6 +294,7 @@ $("#submit-review").on("click", function (event) {
     recipe: recipeName,
     review: comment,
     rate: rating,
+    url: recipeURL,
 
   })
 
@@ -314,10 +316,11 @@ database.ref().on("child_added", function(childSnapshot) {
   var recipeTitle = (childSnapshot.val().recipe);
   var userReview = (childSnapshot.val().review);
   var userRating = (childSnapshot.val().rate);
+  var recURL = (childSnapshot.val().url);
   counter++;
 
-  $("#reviews").append("<div id='review-" + counter + "' class='four columns'><h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/></div>")
-  $("#reviewPage").append("<div id='review-section' class='twelve columns' <h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/><br></div>")
+  $("#reviews").append("<div id='review-" + counter + "' class='four columns'><h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><a href= '" + recURL + "'>" + recURL + "</a><p>" + userReview + "</p><i class='star star-" + userRating + "'/></div>")
+  $("#reviewPage").append("<div id='review-section' class='twelve columns' <h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><a href= '" + recURL + "'>" + recURL + "</a><p>" + userReview + "</p><i class='star star-" + userRating + "'/><br></div>")
   $(`#review-${counter - 3}`).remove();
 
 }, function (errorObj) {
