@@ -230,14 +230,15 @@ $(".collapsible").on("click", function(){
 })
 
 //homepage image slideshow
-var homeImages =["images/anita-austvika-YE6-kcYs36g-unsplash.jpg", "images/anna-pelzer-IGfIGP5ONV0-unsplash.jpg", "images/brooke-lark-HlNcigvUi4Q-unsplash.jpg", "images/eaters-collective-12eHC6FxPyg-unsplash.jpg", "images/element5-digital-acrBf9BlfvE-unsplash.jpg", "images/lily-banse--YHSwy6uqvk-unsplash.jpg", "images/megan-thomas-xMh_ww8HN_Q-unsplash.jpg", "images/ryan-concepcion-50KffXbjIOg-unsplash.jpg", "images/toa-heftiba-Ye46fzD2o70-unsplash.jpg"]
+var homeImages =["images/breakfast.jpg", "images/burrito.jpg", "images/chocolate.jpg", "images/fruit.jpg", "images/macroons.jpg", "images/gather.jpg", "images/pasta.jpg", "images/pie.jpg", "images/protein.jpg", "images/vegebowl.jpg"]
 
 var showImage;
 
 var homeImageCount = 0;
 
 function displayHomeImage(){
-  $("#home-images-slideshow").html("<img src=" + homeImages[homeImageCount] + "/>")
+  $("#home-images-slideshow").html("<img class='imageSize' src=" + homeImages[homeImageCount] + " height='250px' width='100%'>").fadeIn()
+  $("img").fadeIn()
 }
 function nextImage(){
   homeImageCount++;
@@ -247,7 +248,7 @@ function nextImage(){
   }
 }
 function startImageSlideshow(){
-  showImage = setInterval(nextImage, 4000)
+  showImage = setInterval(nextImage, 10000)
 }
 displayHomeImage();
 startImageSlideshow();
@@ -311,7 +312,7 @@ database.ref().on("child_added", function(childSnapshot) {
   counter++;
 
   $("#reviews").append("<div id='review-" + counter + "' class='four columns'><h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/></div>")
-  $("#reviewPage").append("<h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/><br>")
+  $("#reviewPage").append("<div id='review-section' class='twelve columns' <h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><p>" + userReview + "</p><i class='star star-" + userRating + "'/><br></div>")
   $(`#review-${counter - 3}`).remove();
 
 }, function (errorObj) {

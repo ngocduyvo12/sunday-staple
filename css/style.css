@@ -19,11 +19,11 @@ h5{
 }
 a {
   text-decoration: none;
-  color: #009999;
+  color: #006666;
   font-family: 'Questrial', sans-serif;
 }
 a:hover {
-  color:#006666;
+  color:#79d2a1;
 }
 #links {
   float: right;
@@ -34,7 +34,7 @@ button {
 }
 /* home page CSS */
 #welcome, #header {
-  background-color: #ccffff;
+  background-color: #9fdfbc;
   padding: 20px;
 }
 h2, h3 {
@@ -64,6 +64,14 @@ h3 {
 #submit-review{
   float:right;
   margin-right: 30%;
+}
+#home-ingredient-slideshow{
+  width: 100%;
+  height: 250px;
+}
+img.imageSize {
+  height: auto;
+  overflow: hidden;
 }
 /* Star rating CSS */
 
@@ -122,6 +130,12 @@ h3 {
     margin-bottom: 0;
   }
   /* recipe page unique CSS */
+  #recipeP1, #recipeP2 {
+    margin-bottom: 0;
+  }
+  #recipeP2 {
+    margin-top: 1%;
+  }
   .collapsible {
     background-color: #8c8c8c;
     color: #F8F8F8;
@@ -147,7 +161,7 @@ h3 {
   padding: 2%;
 }
 #pastList {
-  background-color: #ccffff;
+  background-color: #9fdfbc;
   opacity: 0.8;
 }
 #recipeForm {
@@ -156,4 +170,15 @@ h3 {
 button.checkbox, button.recipe-checkbox {
   width: 20px;
   padding: 0;
+}
+/* reviews page unique CSS */
+.reviewBody {
+  background-color: #9fdfbc;
+}
+.container {
+  background-color: white;
+}
+#review-section {
+  border: 2px ridge whitesmoke;
+  padding: 2%;
 }
