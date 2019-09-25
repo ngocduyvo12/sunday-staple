@@ -238,7 +238,7 @@ $(".collapsible").on("click", function () {
 })
 
 //homepage image slideshow
-var homeImages = ["images/breakfast.jpg", "images/burrito.jpg", "images/chocolate.jpg", "images/fruit.jpg", "images/macroons.jpg", "images/gather.jpg", "images/pasta.jpg", "images/pie.jpg", "images/protein.jpg", "images/vegebowl.jpg"]
+var homeImages = ["images/blackberry.jpg", "images/blue.jpg", "images/book.jpg", "images/breakfast.jpg", "images/burrito.jpg", "images/cake.jpg", "images/castiron.jpg", "images/chocolate.jpg", "images/flour.jpg", "images/fruit.jpg", "images/garlic.jpg", "images/gather.jpg", "images/macroons.jpg", "images/milkshake.jpg", "images/pasta.jpg", "images/peanutbutter.jpg", "images/pho.jpg", "images/pie.jpg", "images/protein.jpg", "images/spice.jpg", "images/strawberry.jpg", "images/tomato.jpg", "images/vegebowl.jpg"]
 
 var showImage;
 
@@ -413,7 +413,7 @@ database.ref().on("child_added", function (childSnapshot) {
   var recURL = (childSnapshot.val().url);
   counter++;
 
-  $("#reviews").append("<div id='review-" + counter + "' class='four columns'><h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><a href= '" + recURL + "'>" + recURL + "</a><p>" + userReview + "</p><i class='star star-" + userRating + "'/></div>")
+  $("#reviews").append("<div id='review-" + counter + "' class='four columns'><h7>" + userName + "</h7><h3>" + recipeTitle + "</h3><a href= '" + recURL + "'>" + recURL + "</a><p>" + userReview + "</p><i class='star star-" + userRating + "'/></div>")
   $("#reviewPage").append("<div id='review-section' class='twelve columns' <h5>" + userName + "</h5><h4>" + recipeTitle + "</h4><a href= '" + recURL + "'>" + recURL + "</a><p>" + userReview + "</p><i class='star star-" + userRating + "'/><br></div>")
   $(`#review-${counter - 3}`).remove();
 
