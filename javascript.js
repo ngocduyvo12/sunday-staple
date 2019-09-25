@@ -79,8 +79,12 @@ function renderItems() {
 };
 $("#add-item").on("click", function (event) {
   event.preventDefault();
-
+  
   var itemName = $("#item").val().trim();
+  
+    if(!itemName){
+      return false;
+    }
 
   items.push(itemName);
 
@@ -327,6 +331,9 @@ var oldList = JSON.parse(localStorage.getItem("oldList"));
 $("#done-list").on("click", function (event) {
   event.preventDefault();
 
+  $("#shopping-list-items").empty();
+  $("#recipe-shopping-list").empty();
+  $("#old-shopping-lists").empty();
 
   //remove previous old list
   localStorage.removeItem("oldItems");
@@ -338,12 +345,6 @@ $("#done-list").on("click", function (event) {
 
   localStorage.removeItem("items")
   localStorage.removeItem("recipeItems")
-
-
-  // console.log(items);
-  // console.log(list);
-  // console.log(localStorage.getItem("items"))
-  // console.log(localStorage.getItem("recipeItems"))
 
   oldItems = JSON.parse(localStorage.getItem("oldItems"));
   oldList = JSON.parse(localStorage.getItem("oldList"));
