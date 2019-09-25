@@ -16,8 +16,7 @@
 
     <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
-        rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Karla|Playfair+Display|Questrial&display=swap" rel="stylesheet">
 
     <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -40,51 +39,56 @@
         </div>
         <div class="six columns">
             <section id="links">
-                <h5><a href="#">Home</a> |
-                    <a href="#"> Recipe Search</a> |
-                    <a href="#"> Nutrition Search</a> |
-                    <a href="#"> Shopping List</a></h5>
+                <h5><a href="index.html">Home</a> |
+                    <a href="recipe.html"> Recipe Search</a> |
+                    <a href="nutrition.html"> Nutrition Search</a> |
+                    <a href="shoppinglist.html"> Shopping List</a> |
+                    <a href="reviews.html"> Reviews</a></h5>
             </section>
         </div>
     </nav>
-    <div id="header">
-        <h2>Nutrition Search</h2>
-        <p>Lorem ipsum dolor sit amet et delectus accommodare his consul
-            copiosae legendos at vix ad putent delectus
-            delicata usu. Vidit dissentiet eos cu eum an brute copiosae
-            hendrerit. Eos erant dolorum an. Per facer
-            affert ut. Mei iisque mentitum moderatius cu. Sit munere facilis
-            accusam eu dicat falli</p>
-    </div>
-    <form>
-        <div class="form-group" id="search">
-            <span id="search">
-                Search Ingredient:
-                <input id="input" type="text" placeholder="e.g spinach">
-                <input id="qtyInput" type="text"
-                    placeholder="qty must be in grams">
-                <button id="search-ingredient" class="btn"
-                    type="submit">Search</button>
-            </span>
+    <div class="container">
+        <div id="header" class="row">
+            <div class="twelve column">
+                <h2>Nutrition Search</h2>
+                <p id="nutritionP">Search any ingredient or food to get the basic nutrition values. The quantity search is based on grams--don't worry if you can't calculate grams in your head, a good rule of thumb is between 100 to 200 grams for most food. Here is a detailed resource for calculating to grams per serving: <a href="https://healthyeating.sfgate.com/convert-food-serving-sizes-grams-8494.html">Calculate Grams Per Serving</a></p>
+            </div>
         </div>
-    </form>
-    <div class="food-result">
-        <table id='food-table'>
-            <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Quantity</th>
-                    <th>Units</th>
-                    <th>Food</th>
-                    <th>Energy</th>
-                    <th>Nutrients</th>
-                </tr>
-            </thead>
-            <tbody id="table-row">
-            </tbody>
-        </table>
+        <div class="row">
+            <div class="twelve columns">
+                <form>
+                    <div class="form-group" id="search">
+                        <span id="search">
+                            Search Ingredient:
+                            <input id="input" type="text"
+                                placeholder="e.g spinach">
+                            <input id="qtyInput" type="text"
+                                placeholder="qty must be in grams">
+                            <button id="search-ingredient" class="btn"
+                                type="submit">Search</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+        <div class="food-result">
+            <table id='food-table' class="u-full-width">
+                <thead>
+                    <tr>
+                        <th>Quantity</th>
+                        <th>Units</th>
+                        <th>Food</th>
+                        <th>Energy</th>
+                        <th>Nutrients</th>
+                    </tr>
+                </thead>
+                <tbody id="table-row">
+                </tbody>
+            </table>
+        </div>
+        </div>
     </div>
-
     <script src="nutrition.js"></script>
 </body>
 

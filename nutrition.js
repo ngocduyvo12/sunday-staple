@@ -51,7 +51,6 @@ $("#search-ingredient").on("click", function () {
                 var carbTrimmed = carbTrimmed.toFixed(2)
             }
 
-            var ingredientImg = response.hints[i].food.image; //image
 
             console.log(fatTrimmed)
             console.log(fiberTrimmed)
@@ -62,7 +61,6 @@ $("#search-ingredient").on("click", function () {
 
             //create table:
             $("#table-row").append(`<tr>
-                <th><img style="width:150px;height:150px;" src="${ingredientImg || ""}"></th>
                 <th>${number}</th>
                 <th>grams</th>
                 <th>${label}</th>

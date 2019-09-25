@@ -16,7 +16,7 @@
 
     <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <!-- <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Karla|Playfair+Display|Questrial&display=swap" rel="stylesheet">
 
     <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -35,37 +35,41 @@
 
 <body>
     <nav class="row">
-        <div class="six columns">
+        <div class="six columns" >
             <h1>Sunday Staples</h1>
         </div>
         <div class="six columns">
             <section id="links">
-                <h5><a href="#">Home</a> |
-                    <a href="#"> Recipe Search</a> |
-                    <a href="#"> Nutrition Search</a> |
-                    <a href="#"> Shopping List</a></h5>
+                <h5><a href="index.html">Home</a> |
+                    <a href="recipe.html"> Recipe Search</a> |
+                    <a href="nutrition.html"> Nutrition Search</a> |
+                    <a href="shoppinglist.html"> Shopping List</a> |
+                    <a href="reviews.html"> Reviews</a></h5>
             </section>
         </div>
     </nav>
+    <div class="container">
+    <div class="row">
+    <div class="six columns" id="currentList">
     <div class="list-header">
-        <h2>My Shopping List!</h2>
-        <form>
+        <h3>My Shopping List:</h3>
+        <form id="recipeForm">
             <span id="shopping-item">Item to add: <input id="item"
                     type="text"><input id="add-item" value="Add Item"
                     type="submit"></span>
         </form>
     </div>
-    <hr>
     <div id="shopping-list-items"></div>
     <div id="recipe-shopping-list"></div>
-    <div id="past-shopping-lists">
-        <h4>Past Shopping Lists:</h4>
-        <ul>
-            <li>6/30</li>
-            <li>7/15</li>
-            <li>8/31</li>
-        </ul>
     </div>
+    <div class="six columns" id="pastList">
+    <div id="past-shopping-lists">
+        <h3>Past Shopping Lists:</h3>
+        List goes here
+    </div>
+  </div>
+  </div>
+  </div>
     <script src="javascript.js"></script>
 </body>
 

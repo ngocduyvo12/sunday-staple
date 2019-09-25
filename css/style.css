@@ -5,29 +5,37 @@
 nav {
   width: 100%;
   background-color: #d9d9d9;
-  margin-bottom: 2%;
-  padding: 20px;
+  padding: 0 20px 10px;
 }
 h1 {
-  margin: 0;
+  margin: 0 0 0 2%;
   letter-spacing: 1rem;
   font-family: 'Playfair Display', serif;
 }
 h5{
-  margin:15px 0 0;
+  margin: 20px 0 0;
+  font-size: 1.75rem;
   
 }
 a {
   text-decoration: none;
-  color: #009999;
+  color: #006666;
+  font-family: 'Questrial', sans-serif;
+}
+a:hover {
+  color:#79d2a1;
 }
 #links {
   float: right;
+  margin-right: 2%;
+}
+button {
+  border: 1px solid #202020;
 }
 /* home page CSS */
-#welcome {
-  background-color: #ccffff;
-  padding: 5px 0 0 5px;
+#welcome, #header {
+  background-color: #9fdfbc;
+  padding: 20px;
 }
 h2, h3 {
   font-family: 'Playfair Display', serif;
@@ -35,9 +43,35 @@ h2, h3 {
 }
 h3 {
   font-size: 18px;
+  margin: 0 0 15px 7px;
+  border-bottom: 2px ridge #202020;
+
 }
-#homeP1 {
-  margin: 5px 0;
+#homeP1, #homeP2 {
+  margin: 0 10px 10px;
+}
+#reviewsRow {
+  background-color: #F8F8F8;
+}
+#reviewFormHeader {
+  margin-bottom: 3%;
+}
+#reviewForm {
+  border: 2px inset 	#202020;
+  padding: 5% 0 5% 10%;
+  font-size: 24px;
+}
+#submit-review{
+  float:right;
+  margin-right: 30%;
+}
+#home-ingredient-slideshow{
+  width: 100%;
+  height: 250px;
+}
+img.imageSize {
+  height: auto;
+  overflow: hidden;
 }
 /* Star rating CSS */
 
@@ -51,7 +85,7 @@ h3 {
   .star {
     display:block;
     background-image: url(../images/starRatingFixed.png);
-    width: 304px;
+    width: 300px;
     background-position: 0 0;
     height: 50px;
   }
@@ -84,4 +118,67 @@ h3 {
   .star.selected > i.fa {
     color:#FF912C;
   }
-  
+/* nutrition page unique CSS */
+  #search {
+    padding: 1.5% 0 0 8.5%;
+    background-color: #F8F8F8;
+  }
+  th {
+    padding-top: 0;
+  }
+  #nutritionP {
+    margin-bottom: 0;
+  }
+  /* recipe page unique CSS */
+  #recipeP1, #recipeP2 {
+    margin-bottom: 0;
+  }
+  #recipeP2 {
+    margin-top: 1%;
+  }
+  .collapsible {
+    background-color: #8c8c8c;
+    color: #F8F8F8;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 15px;
+    padding: 0;
+  }
+.hidden {
+  display: none
+}
+.show {
+  display: block
+}
+/* shopping list page unique CSS */
+#currentList, #pastList {
+  margin-top: 5%;
+  border: 3px inset 	#202020;
+  padding: 2%;
+}
+#pastList {
+  background-color: #9fdfbc;
+  opacity: 0.8;
+}
+#recipeForm {
+  margin-bottom: 1%;
+}
+button.checkbox, button.recipe-checkbox {
+  width: 20px;
+  padding: 0;
+}
+/* reviews page unique CSS */
+.reviewBody {
+  background-color: #9fdfbc;
+}
+.container {
+  background-color: white;
+}
+#review-section {
+  border: 2px ridge whitesmoke;
+  padding: 2%;
+}

@@ -16,8 +16,7 @@
 
     <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
-        rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Karla|Playfair+Display|Questrial&display=swap" rel="stylesheet">
 
     <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -41,17 +40,24 @@
         </div>
       <div class="six columns">
         <section id="links">
-          <h5><a href="#">Home</a> | 
-          <a href="#"> Recipe Search</a> |
-          <a href="#"> Nutrition Search</a> |
-          <a href="#"> Shopping List</a></h5>
+          <h5><a href="index.html">Home</a> | 
+          <a href="recipe.html"> Recipe Search</a> |
+          <a href="nutrition.html"> Nutrition Search</a> |
+          <a href="shoppinglist.html"> Shopping List</a> |
+          <a href="reviews.html"> Reviews</a></h5>
         </section>
         </div>
       </nav>
-    <div id="header">
+<div class="container">
+    <div id="header" class="row">
+      <div class="twelve columns">
         <h2>Recipe Search</h2>
-        <p>Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum an. Per facer affert ut. Mei iisque mentitum moderatius cu. Sit munere facilis accusam eu dicat falli</p>
+        <p id="recipeP1">Add some variety to your meal plan for the week by searching a Sunday Staple (protein, veggie, fruit, that you have leftover from the past week) and find a new recipe to try out. You can save the recipe title and link by clicking the "Save!" button, and then you can come back and view saved recipes by clicking on "VIEW SAVED". It's that easy!</p>
+        <p id="recipeP2">To make it even easier on you, if you like a recipe and want to try it out you can click "ADD TO SHOPPING LIST" and it will transfer to your Shopping List page.</p>
     </div>
+  </div>
+  <div class="row">
+    <div class="twelve columns">
     <form>
         <div class="form-group" id="search">
             <span id="search">
@@ -62,16 +68,33 @@
             </span>
         </div>
     </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six columns">
     <section class="list-of-recipes">
     </section>
-
+    </div>
+    <div class="six columns">
     <div class="video">
         <div class="search-bar"></div>
         <div class="get-video"></div>
     </div>
-    <div class="saved-recipes">
     </div>
-    <script src="javascript.js"></script>
+  </div>
+  <div class="row">
+    <div class="twelve columns">
+        <button type="button" class="collapsible">View Saved</button>   
+        <div id="saved-content" class="hidden">
+          <div class="saved-recipes"> 
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+<script src="javascript.js"></script>
 </body>
 
 </html>
