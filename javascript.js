@@ -141,6 +141,7 @@ $(".saved-recipes").on("click", ".remove", function () {
   var index = $(this).attr("data-recipe");
 
   saved.splice(index, 1);
+  labels.splice(index, 1);
 
   localStorage.setItem("saved", JSON.stringify(saved));
   localStorage.setItem("labels", JSON.stringify(labels));
